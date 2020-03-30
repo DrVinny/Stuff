@@ -4,7 +4,6 @@ $DesktopPath = [Environment]::GetFolderPath("Desktop")
 # mkdir $DesktopPath\Working
 
 #New Way
-New-Item -Path $DesktopPath -Name "Working\DL" -ItemType "Directory"
-New-Item -Path $DesktopPath -Name "Working\OneDrive" -ItemType "Directory"
-New-Item -Path $DesktopPath -Name "Working\Test" -ItemType "Directory"
-New-Item -Path $DesktopPath -Name "Working\Transfer" -ItemType "Directory"
+New-Item -Path $DesktopPath -Name "Working\dl" -ItemType "Directory"
+New-Item -Path $DesktopPath -Name "Working\test" -ItemType "Directory"
+New-Item -Path $DesktopPath -Name "Working\xfer" -ItemType "Directory"
