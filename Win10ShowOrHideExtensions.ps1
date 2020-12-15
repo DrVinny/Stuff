@@ -1,9 +1,13 @@
 ﻿#Alias for New-ItemProperty
-$resGalNip = gal nip
+$resGalNip = gal nip -ErrorAction SilentlyContinue
 if ($resGalNip -eq $null)
-    {New-Alias nip New-ItemProperty}
+    {   
+    New-Alias nip New-ItemProperty
+    echo "nip alias created"
+    }
 else
     {echo "Nip already exists"}
+
 
 #location of Registry key
 $regPath1 = "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced"
@@ -21,7 +25,10 @@ $hideExtResult
 #if the reg entry doesn't exist, create it, and set the value to 0
 
 if ($hideExtResult -eq $null)
-    {New-ItemProperty $regPath1 -Name $regName1 -Value 0}
+    {
+    New-ItemProperty $regPath1 -Name $regName1 -Value 0
+    echo "Added registry entry"
+    }
     else
     {echo "it already exists"}
 
@@ -31,8 +38,9 @@ if ($hideExtResult -eq 1)
     else
     {sp -Path $regPath1 -Name $regName1 -Value 1}
 
+#Send refresh to the active window
+# With this line
 # sendkeys.send("{F5}")
 
-
-#Send refresh to the active window
+# Or this line
 # [System.Windows.Forms.SendKeys]::SendWait("{F5}")
